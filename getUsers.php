@@ -21,8 +21,8 @@ if ($conn->connect_error) {
 <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
 <script>
 $(document).ready(function functionName() {
-  $("#hello").html("hello world");
-  Intellegent guess (xml, json, script, html)
+  $("#div1").html("hello world");
+
 });
 
 function showUser(str) {
@@ -30,20 +30,16 @@ function showUser(str) {
         document.getElementById("txtHint").innerHTML = "";
         return;
     } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","indexConstruction.php?q="+str,true);
-        xmlhttp.send();
+        $.ajax({
+    method: "GET",
+    url: "../test.php",
+    data: { name: "John", location: "Boston" }
+  })
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  });
+});
+
     }
 }
 </script>
@@ -52,16 +48,14 @@ function showUser(str) {
 
 <form>
 <select name="users" onchange="showUser(this.value)">
-  <!-- <option value="">Select a person:</option>
-  <option value="1">Peter Griffin</option>
-  <option value="2">Lois Griffin</option>
-  <option value="3">Joseph Swanson</option>
-  <option value="4">Glenn Quagmire</option> -->
+  <option value="1">xxxxxxx</option>
+
+
   </select>
 </form>
 <br>
 <div id="txtHint"><b>Person info will be listed here...</b></div>
-<div id="hello">
+<div id="div1">
 0
 </div>
 

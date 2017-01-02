@@ -29,17 +29,17 @@ echo "Connected successfully" . "<br>";
     <div class="table">
 
       <?php
-      $sql = "SELECT * FROM Users";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-              echo "id: " . $row["userid"]. " - Name: " . $row["fname"]. "  -last name " . $row["lname"]. "<br>";
-          }
-      } else {
-          echo "0 results";
-      }
+      // $sql = "SELECT * FROM Users";
+      // $result = $conn->query($sql);
+      //
+      // if ($result->num_rows > 0) {
+      //     // output data of each row
+      //     while($row = $result->fetch_assoc()) {
+      //         echo "id: " . $row["userid"]. " - Name: " . $row["fname"]. "  -last name " . $row["lname"]. "<br>";
+      //     }
+      // } else {
+      //     echo "0 results";
+      // }
        ?>
 
     </div>
@@ -53,7 +53,7 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"persnid1_persnickety_DB");
-$sql="SELECT * FROM user WHERE id = '".$q."'";
+$sql="SELECT * FROM User WHERE userid = '".$q."'";
 $result = mysqli_query($con,$sql);
 
 echo "<table>
