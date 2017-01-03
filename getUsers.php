@@ -40,18 +40,32 @@ function showUser(str) {
   });
 });
 
-    }
 }
+
 </script>
 </head>
 <body>
 
 <form>
 <select name="users" onchange="showUser(this.value)">
-  <option value="1">xxxxxxx</option>
+<?php	
+echo "<option value=''>Select a person:</option>";
+
+$sql = 'SELECT * FROM Users';
+$result = mysqli_query($conn,$sql) or die(mysqli_error($dbname));
+while ($row = mysqli_fetch_array($result) or die(mysqli_error($dbname)) )
+{
+echo "<option value=" . $row['userid'] . ">" . $row['fname'] . $row['mi'] . $row['lname'] . "</option>";
+}
+
+$conn->close(); 
+?>
+</select>
+
+<br>
 
 
-  </select>
+
 </form>
 <br>
 <div id="txtHint"><b>Person info will be listed here...</b></div>
@@ -61,3 +75,4 @@ function showUser(str) {
 
 </body>
 </html>
+
