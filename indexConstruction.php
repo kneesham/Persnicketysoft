@@ -16,8 +16,13 @@ if ($conn->connect_error) {
 
 <?php
 $userid = $_GET['id'];
+
 $sql = "SELECT * FROM Users WHERE userid ='" . $userid . "'";
+
 $result = mysqli_query($conn,$sql) or die(mysqli_error($dbname));
-echo "<p>" . $userid['lname'] . "</p>";
+
+$row = mysqli_fetch_array($result);
+
+echo "<p>" . $row['lname'] . "</p>";
 
 $conn->close();  ?>
