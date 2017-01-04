@@ -15,6 +15,9 @@ if ($conn->connect_error) {
 ?>
 
 <?php
-$userid = $_GET['fname'];
-echo "you passed in " . $userid;
+$userid = $_GET['id'];
+$sql = "SELECT * FROM Users WHERE userid ='" . $userid . "'";
+$result = mysqli_query($conn,$sql) or die(mysqli_error($dbname));
+echo "<p>" . $userid['lname'] . "</p>";
+
 $conn->close();  ?>
