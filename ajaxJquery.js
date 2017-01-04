@@ -1,7 +1,8 @@
 $(document).ready(function() {
-var value = $( this ).val();
+
   $( "#users" ).on('change', function(){
-    $( "#userdiv" ).load("indexConstruction.php?userid=" + value);
+    var value = $( this ).val();
+    $( "#userdiv" ).load("indexConstruction.php?fname=" + value);
 
 
       // $("#userdiv").text( value );

@@ -15,6 +15,6 @@ if ($conn->connect_error) {
 ?>
 
 <?php
-$userid = $_GET['userid'];
+$userid = $_GET['fname'];
 echo "you passed in " . $userid;
 $conn->close();  ?>
