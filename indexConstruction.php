@@ -14,24 +14,7 @@ if ($conn->connect_error) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script> -->
-    <link rel="stylesheet" href="helloworld.css"></link>
-    <meta charset="utf-8">
-    <title>hello php</title>
-  </head>
-  <body>
-    <div id="table" class="table">
-  <div id='userLoad'>
-
-  </div>
-
-    </div>
-  </body>
-</html>
-
 <?php
-
+$userid = $_GET['userid'];
+echo "you passed in " . $userid;
 $conn->close();  ?>

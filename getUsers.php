@@ -39,8 +39,9 @@ $result = mysqli_query($conn,$sql) or die(mysqli_error($dbname));
 while ($row = mysqli_fetch_array($result) or die(mysqli_error($dbname)))
 {
 echo "<option value=" . $row['userid'] . ">" . $row['fname'] . $row['mi'] . $row['lname'] . "</option>";
-$conn->close();
 }
+$conn->close();
+
 ?>
 
 

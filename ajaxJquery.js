@@ -1,11 +1,10 @@
 $(document).ready(function() {
-
+var value = $( this ).val();
   $( "#users" ).on('change', function(){
-    $( "#userLoad" ).load("indexConstruction.php");
+    $( "#userdiv" ).load("indexConstruction.php?userid=" + value);
 
-      var value = $( this ).val();
 
-      $("#userdiv").text( value );
+      // $("#userdiv").text( value );
 
   });
 
